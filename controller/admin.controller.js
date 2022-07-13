@@ -147,35 +147,36 @@ exports.getAnAdmin = async (req, res, next) => {
 
 exports.updateAdmin = async (req, res, next) => {
     try {
-      const id = req.params.id;
-      Admin.update(req.body, {
-        where: { id: id },
-      })
-        .then((num) => {
-          if (num == 1) {
-            res.status(200).json({
-              status: true,
-              message: "updated successfully.",
-            });
-          } else {
-            res.status(200).json({
-              status: false,
-              message: `Maybe User was not found or req.body is empty!`,
-            });
-          }
+        const id = req.params.id;
+        Admin.update(req.body, {
+            where: { id: id },
         })
-        .catch((err) => {
-          res.status(200).json({
-            status: false,
-            message: "Error updating Adin with id=" + id,
-          });
-        });
+            .then((num) => {
+                if (num == 1) {
+                    res.status(200).json({
+                        status: true,
+                        message: "updated successfully.",
+                    });
+                } else {
+                    res.status(200).json({
+                        status: false,
+                        message: `Maybe User was not found or req.body is empty!`,
+                    });
+                }
+            })
+            .catch((err) => {
+                res.status(200).json({
+                    status: false,
+                    message: "Error updating Adin with id=" + id,
+                });
+            });
     } catch (error) {
-      logger.error(error.message);
-      return res.status(200).json({
-        status: false,
-        message: error.message,
-        data: {},
-      });
+        logger.error(error.message);
+        return res.status(200).json({
+            status: false,
+            message: error.message,
+            data: {},
+        });
     }
-  };
+};
+

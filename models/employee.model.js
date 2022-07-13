@@ -16,6 +16,11 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER(1),
             defaultValue: 1
         }
+    }, {
+        indexes: [{
+            unique: true,
+            fields: ['email'] // you can use multiple columns as well here
+        }]
     });
 
     return Employee;

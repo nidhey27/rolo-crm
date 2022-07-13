@@ -8,8 +8,10 @@ module.exports = (app) => {
     router.post("/create-admin", admin.createAdmin);
     router.post("/login-admin", admin.loginAdmin);
     router.get("/", authAdmin, admin.getAllAdmins);
-    router.get("/:id", authAdmin, admin.getAnAdmin);
-    router.put("/update-admin/:id", authAdmin, admin.updateAdmin);
+    router.get("/:id(\\d+)", authAdmin, admin.getAnAdmin);
+    router.put("/update-admin/:id(\\d+)", authAdmin, admin.updateAdmin);
+
+    // router.post("/xls/:admin_id(\\d+)", admin.addAdminsInBulk);
     // router.delete("/delete-admin/:id", authAdmin, admin.deleteAdmin);
 
     app.use("/api/admin", router);

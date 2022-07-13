@@ -35,6 +35,7 @@ app.get('/', async (req, res, next) => {
 });
 
 require("./routes/admin.routes")(app);
+require("./routes/employee.routes")(app);
 
 // require('./routes/customer.routes')(app);
 // require('./routes/sales.routes')(app);
