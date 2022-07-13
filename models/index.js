@@ -22,7 +22,15 @@ db.sequelize = sequelize;
 
 db.admin = require("./admin.model")(sequelize, Sequelize);
 db.employee = require("./employee.model")(sequelize, Sequelize);
+db.leads = require("./user.model")(sequelize, Sequelize);
+db.remarks = require("./remarks.model")(sequelize, Sequelize);
 
-db.admin.hasMany(db.employee, { as: 'admin_id', foreignKey: 'id' })
+db.admin.hasMany(db.employee, { as: 'admin_id', foreignKey: 'admin_id' })
+
+db.admin.hasMany(db.leads, { foreignKey: 'admin_id' })
+db.employee.hasMany(db.leads, { foreignKey: 'emp_id' })
+
+db.employee.hasMany(db.remarks, { foreignKey: 'emp_id' })
+db.leads.hasMany(db.remarks, { foreignKey: 'lead_id' })
 
 module.exports = db;
