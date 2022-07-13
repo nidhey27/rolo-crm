@@ -20,4 +20,9 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+db.admin = require("./admin.model")(sequelize, Sequelize);
+db.employee = require("./employee.model")(sequelize, Sequelize);
+
+db.admin.hasMany(db.employee, { as: 'admin_id', foreignKey: 'id' })
+
 module.exports = db;

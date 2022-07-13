@@ -40,5 +40,5 @@ app.get('/', async (req, res, next) => {
 // require('./routes/admin.routes')(app);
 
 app.listen(_PORT, () => {
-  logger.info(`App is UP and Running at PORT: ${_PORT}`);
+  logger.info(`App is UP and Running at PORT: ${require('os').hostname()}:${_PORT}`);
 });
