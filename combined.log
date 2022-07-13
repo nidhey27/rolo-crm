@@ -302,3 +302,15 @@
 
 13-07-22 13:29:30 [info]: ::ffff:10.20.246.5 - - [13/Jul/2022:13:29:30 +0000] "GET /api/admin/ HTTP/1.1" 200 206 "-" "PostmanRuntime/7.29.2"
 
+13-07-22 13:32:26 [info]: App is UP and Running at PORT: nidhey27-rolocrm-fnl1l2xfazz:3000
+13-07-22 13:32:40 [info]: App is UP and Running at PORT: nidhey27-rolocrm-fnl1l2xfazz:3000
+13-07-22 13:32:42 [info]: App is UP and Running at PORT: nidhey27-rolocrm-fnl1l2xfazz:3000
+13-07-22 13:33:13 [info]: App is UP and Running at PORT: nidhey27-rolocrm-fnl1l2xfazz:3000
+13-07-22 13:33:15 [info]: ::ffff:10.20.142.71 - - [13/Jul/2022:13:33:15 +0000] "GET /api/admin/1 HTTP/1.1" 200 43 "-" "PostmanRuntime/7.29.2"
+
+13-07-22 13:33:30 [info]: ::ffff:10.20.55.139 - - [13/Jul/2022:13:33:30 +0000] "GET /api/admin/ HTTP/1.1" 200 206 "-" "PostmanRuntime/7.29.2"
+
+13-07-22 13:33:44 [info]: ::ffff:10.20.142.71 - - [13/Jul/2022:13:33:44 +0000] "GET /api/admin/1 HTTP/1.1" 200 204 "-" "PostmanRuntime/7.29.2"
+
+13-07-22 13:33:58 [info]: ::ffff:10.20.55.139 - - [13/Jul/2022:13:33:58 +0000] "PUT /api/admin/update-admin/1 HTTP/1.1" 200 49 "-" "PostmanRuntime/7.29.2"
+
