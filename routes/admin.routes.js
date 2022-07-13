@@ -7,9 +7,9 @@ module.exports = (app) => {
   
     router.post("/create-admin", admin.createAdmin);
     router.post("/login-admin", admin.loginAdmin);
-    // router.get("/", authAdmin, admin.getAllUsers);
-    // router.get("/:id", authAdmin, admin.getAnUser);
-    // router.put("/update-admin/:id", authAdmin, admin.updateAdmin);
+    router.get("/", admin.getAllAdmins);
+    router.get("/:id", admin.getAnAdmin);
+    router.put("/update-admin/:id", admin.updateAdmin);
     // router.delete("/delete-admin/:id", authAdmin, admin.deleteAdmin);
   
     app.use("/api/admin", router);
