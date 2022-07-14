@@ -5,6 +5,8 @@ const bcrypt = require("bcryptjs");
 const logger = require("../logger");
 const jwt = require("jsonwebtoken");
 
+const { getPagingData, getPagination } = require("./helper/pagination.helper")
+
 const db = require("../models");
 const Op = db.Sequelize.Op;
 const Employee = db.employee;
@@ -167,3 +169,39 @@ async function convertExcelFileToJsonUsingXlsx(path) {
     // console.log(parsedData);
     return (parsedData);
 }
+
+
+exports.getAllEmployees = async (req, res, next) => {
+    try {
+        const { page, size } = req.query;
+        if (size > 100)
+            return res.status(200).json({
+                status: false,
+                message: "Size limit exceed. Size must be <= 100"
+            })
+        const { limit, offset } = getPagination(page, size);
+        const condition = { admin_id: req.params.admin_id }
+        Employee.findAndCountAll({ where: condition, limit, offset, attributes: { exclude: ['password'] } })
+            .then(data => {
+                const response = getPagingData(data, page, limit);
+                response.status = true
+                response.message = "success"
+                res.send(response);
+            })
+            .catch(err => {
+                res.status(500).send({
+                    message:
+                        err.message || "Some error occurred while retrieving tutorials."
+                });
+            });
+
+    } catch (error) {
+        logger.error(error.message);
+        console.log(error);
+        return res.status(200).json({
+            status: false,
+            message: error.message,
+        });
+    }
+}
+

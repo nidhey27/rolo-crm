@@ -7,6 +7,7 @@ module.exports = (app) => {
 
 
     router.post("/xls/:admin_id(\\d+)", employee.addEmpsInBulk);
+    router.get("/:admin_id(\\d+)", employee.getAllEmployees);
     // router.delete("/delete-admin/:id", authAdmin, admin.deleteAdmin);
 
     app.use("/api/employee", router);
